@@ -4,7 +4,7 @@ resharper-rejs
 Refactorings for JavaScript
 
 ###Available quick-fixes
-####Detect function call with the same context as function owner.
+####Detect function invocations with `Function.prototype.call` with the same context as the function's owner.
 
 Example
 ```javascript

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReSharper.ReJS", "ReSharper.ReJS\ReSharper.ReJS\ReSharper.ReJS.csproj", "{C66F56B8-55F3-41C8-AC89-00ABFEE06293}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReSharper.ReJS", "src\ReSharper.ReJS\ReSharper.ReJS.csproj", "{C66F56B8-55F3-41C8-AC89-00ABFEE06293}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReSharper.ReJS.Tests", "ReSharper.ReJS\ReSharper.ReJS.Tests\ReSharper.ReJS.Tests.csproj", "{5B7C7310-2F48-49A5-A56D-041724E1C87D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReSharper.ReJS.Tests", "src\ReSharper.ReJS.Tests\ReSharper.ReJS.Tests.csproj", "{5B7C7310-2F48-49A5-A56D-041724E1C87D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E9F73207-EB2F-481F-9880-7F91FB59CCF2}"
 	ProjectSection(SolutionItems) = preProject

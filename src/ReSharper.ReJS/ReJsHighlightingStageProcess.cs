@@ -5,6 +5,7 @@ using JetBrains.ReSharper.Daemon.JavaScript.Impl;
 using JetBrains.ReSharper.Daemon.Stages;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.JavaScript.Tree;
+using JetBrains.ReSharper.Psi.Tree;
 
 namespace ReSharper.ReJS
 {
@@ -38,19 +39,30 @@ namespace ReSharper.ReJS
             if (function == null)
                 return false;
 
-            var context = function.Qualifier as IReferenceExpression;
-            if (context == null)
-                return false;
+            return AreSame(function.Qualifier, invocation.Arguments.FirstOrDefault());
+        }
 
-            var contextElement = context.Reference.Resolve().DeclaredElement;
+        private static bool AreSame(ITreeNode x, ITreeNode y)
+        {
+            var referenceX = x as IReferenceExpression;
+            var referenceY = y as IReferenceExpression;
+            if (referenceX != null && referenceY != null)
+            {
+                var resolvedReferenceX = referenceX.Reference.Resolve().DeclaredElement;
+                var resolvedReferenceY = referenceY.Reference.Resolve().DeclaredElement;
 
-            var suppliedContext = invocation.Arguments.FirstOrDefault() as IReferenceExpression;
-            if (suppliedContext == null)
-                return false;
+                return Equals(resolvedReferenceY, resolvedReferenceX);
+            }
 
-            var suppliedContextElement = suppliedContext.Reference.Resolve().DeclaredElement;
+            var thisX = x as IThisExpression;
+            var thisY = y as IThisExpression;
+            if (thisX != null && thisY != null)
+            {
+                //TODO: add proper comparision
+                return true;
+            }
 
-            return Equals(suppliedContextElement, contextElement);
+            return false;
         }
     }
 }

@@ -1,19 +1,10 @@
 using System;
 using System.Linq;
-using JetBrains.Annotations;
 using JetBrains.Application.Settings;
-using JetBrains.ProjectModel;
 using JetBrains.ReSharper.Daemon;
 using JetBrains.ReSharper.Daemon.JavaScript.Impl;
 using JetBrains.ReSharper.Daemon.Stages;
-using JetBrains.ReSharper.Feature.Services.CSharp;
-using JetBrains.ReSharper.InplaceRefactorings;
 using JetBrains.ReSharper.Psi;
-using JetBrains.ReSharper.Psi.ControlFlow.Impl;
-using JetBrains.ReSharper.Psi.JavaScript.ControlFlow;
-using JetBrains.ReSharper.Psi.JavaScript.Impl.ControlFlow.Inspections.ValueAnalysis;
-using JetBrains.ReSharper.Psi.JavaScript.Impl.Resolve;
-using JetBrains.ReSharper.Psi.JavaScript.Services;
 using JetBrains.ReSharper.Psi.JavaScript.Tree;
 using JetBrains.ReSharper.Psi.Tree;
 
@@ -21,14 +12,9 @@ namespace ReSharper.ReJS
 {
     public class ReJsHighlightingStageProcess : JavaScriptDaemonStageProcessBase
     {
-        private readonly JavaScriptServices _services;
-        private readonly JavaScriptResolveContext _context;
-
         public ReJsHighlightingStageProcess(IDaemonProcess process, IContextBoundSettingsStore settingsStore, IJavaScriptFile file)
             : base(process, settingsStore, file)
         {
-            _services = DaemonProcess.Solution.GetComponent<JavaScriptServices>();
-            _context = JavaScriptResolveContext.CreateInitialContext(_services, File.GetSourceFile());
         }
 
         public override void Execute(Action<DaemonStageResult> commiter)

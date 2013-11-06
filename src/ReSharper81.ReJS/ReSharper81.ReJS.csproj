@@ -47,6 +47,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\ReSharper.ReJS\AccessToModifiedClosureWarning.cs">
+      <Link>AccessToModifiedClosureWarning.cs</Link>
+    </Compile>
     <Compile Include="..\ReSharper.ReJS\CallWithSameContextWarning.cs">
       <Link>CallWithSameContextWarning.cs</Link>
     </Compile>
@@ -55,6 +58,12 @@
     </Compile>
     <Compile Include="..\ReSharper.ReJS\Properties\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\ReSharper.ReJS\ReferenceExpressionCollector.cs">
+      <Link>ReferenceExpressionCollector.cs</Link>
+    </Compile>
+    <Compile Include="..\ReSharper.ReJS\ReferenceInfo.cs">
+      <Link>ReferenceInfo.cs</Link>
     </Compile>
     <Compile Include="..\ReSharper.ReJS\ReJSHighlightingStage.cs">
       <Link>ReJSHighlightingStage.cs</Link>

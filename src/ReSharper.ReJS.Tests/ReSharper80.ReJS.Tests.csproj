@@ -48,9 +48,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessToModifiedClosureWarningAvailabilityTest.cs" />
     <Compile Include="CallWithSameContextWarningFixTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
+    <None Include="test\data\AccessToModifiedClosureWarningAvailabilityTest\test01.js.gold" />
     <None Include="test\data\execute01.js" />
   </ItemGroup>
   <ItemGroup>
@@ -65,6 +67,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="test\data\execute02.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="test\data\AccessToModifiedClosureWarningAvailabilityTest\test01.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

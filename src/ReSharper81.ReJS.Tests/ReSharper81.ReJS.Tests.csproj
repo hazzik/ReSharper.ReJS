@@ -48,6 +48,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\ReSharper.ReJS.Tests\AccessToModifiedClosureWarningAvailabilityTest.cs">
+      <Link>AccessToModifiedClosureWarningAvailabilityTest.cs</Link>
+    </Compile>
     <Compile Include="..\ReSharper.ReJS.Tests\CallWithSameContextWarningFixTest.cs">
       <Link>CallWithSameContextWarningFixTest.cs</Link>
     </Compile>

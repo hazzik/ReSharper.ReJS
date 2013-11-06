@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>ReSharper.ReJS</id>
-    <version>0.3.0</version>
+    <version>0.3.1</version>
     <title>ReSharper.ReJS</title>
     <authors>Alexander Zaytsev</authors>
     <owners>Hazzik</owners>

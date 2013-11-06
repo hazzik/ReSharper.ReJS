@@ -71,7 +71,8 @@ namespace ReSharper.ReJS
         {
             return node.GetContainingNode<IForStatement>() != null ||
                    node.GetContainingNode<IForeachStatement>() != null ||
-                   node.GetContainingNode<IWhileStatement>() != null;
+                   node.GetContainingNode<IWhileStatement>() != null ||
+                   node.GetContainingNode<IDoStatement>() != null;
         }
 
         private static bool IsCallWithTheSameContextAsFunctionOwner(IInvocationExpression invocation)

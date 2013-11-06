@@ -5,7 +5,6 @@ using JetBrains.Application.Settings;
 using JetBrains.ReSharper.Daemon;
 using JetBrains.ReSharper.Daemon.JavaScript.Impl;
 using JetBrains.ReSharper.Daemon.Stages;
-using JetBrains.ReSharper.Feature.Services.LinqTools;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.JavaScript.Tree;
 using JetBrains.ReSharper.Psi.Tree;

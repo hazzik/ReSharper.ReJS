@@ -1,12 +1,14 @@
 using JetBrains.ReSharper.Daemon;
+using JetBrains.ReSharper.Psi.JavaScript.LanguageImpl;
 using JetBrains.ReSharper.Psi.JavaScript.Tree;
 
 namespace ReSharper.ReJS
 {
-    [StaticSeverityHighlighting(Severity.WARNING, HighlightingGroupIds.CodeRedundancy)]
+    [ConfigurableSeverityHighlighting(HIGHLIGHTING_ID, JavaScriptLanguage.Name, OverlapResolve = OverlapResolveKind.WARNING)]
     public class CallWithSameContextWarning : IHighlighting
     {
         private readonly IInvocationExpression _invocationExpression;
+        public const string HIGHLIGHTING_ID = "CallWithTheSameContext";
 
         public CallWithSameContextWarning(IInvocationExpression invocationExpression)
         {

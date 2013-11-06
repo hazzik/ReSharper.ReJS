@@ -1,11 +1,15 @@
 ﻿using JetBrains.ReSharper.Daemon;
+using JetBrains.ReSharper.Psi.JavaScript.LanguageImpl;
 using JetBrains.ReSharper.Psi.JavaScript.Tree;
 
 namespace ReSharper.ReJS
 {
-    [StaticSeverityHighlighting(Severity.WARNING, HighlightingGroupIds.CodeRedundancy)]
+    [ConfigurableSeverityHighlighting(HIGHLIGHTING_ID, JavaScriptLanguage.Name, OverlapResolve = OverlapResolveKind.WARNING)]
     public class AccessToModifiedClosureWarning : IHighlighting
     {
+        //TODO: Can I reuse CSharp's HIGHLIGHTING_ID?
+        public const string HIGHLIGHTING_ID = "JsAccessToModifiedClosure";
+
         private readonly IReferenceExpression _referenceExpression;
 
         public AccessToModifiedClosureWarning(IReferenceExpression referenceExpression)

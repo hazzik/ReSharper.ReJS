@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\packages\JetBrains.ReSharper.SDK.Tests.8.0.1243\build\JetBrains.ReSharper.SDK.Tests.Props" Condition="Exists('..\..\packages\JetBrains.ReSharper.SDK.Tests.8.0.1243\build\JetBrains.ReSharper.SDK.Tests.Props')" />
-  <Import Project="..\..\packages\JetBrains.ReSharper.SDK.8.0.1243\build\JetBrains.ReSharper.SDK.Props" Condition="Exists('..\..\packages\JetBrains.ReSharper.SDK.8.0.1243\build\JetBrains.ReSharper.SDK.Props')" />
+  <Import Project="..\..\packages\JetBrains.ReSharper.SDK.Tests.8.1.231-EAP\build\JetBrains.ReSharper.SDK.Tests.Props" Condition="Exists('..\..\packages\JetBrains.ReSharper.SDK.Tests.8.1.231-EAP\build\JetBrains.ReSharper.SDK.Tests.Props')" />
+  <Import Project="..\..\packages\JetBrains.ReSharper.SDK.8.1.231-EAP\build\JetBrains.ReSharper.SDK.Props" Condition="Exists('..\..\packages\JetBrains.ReSharper.SDK.8.1.231-EAP\build\JetBrains.ReSharper.SDK.Props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5B7C7310-2F48-49A5-A56D-041724E1C87D}</ProjectGuid>
+    <ProjectGuid>{52FD6D3B-B070-4069-BD33-11DCA344238B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ReSharper.ReJS.Tests</RootNamespace>
@@ -22,7 +22,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\ReSharper.ReJS.Tests\bin\Debug\v8.1\</OutputPath>
     <DefineConstants>JET_MODE_ASSERT;DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -30,7 +30,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\ReSharper.ReJS.Tests\bin\Release\v8.1\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -48,25 +48,23 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CallWithSameContextWarningFixTest.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="packages.config" />
-    <None Include="test\data\execute01.js" />
+    <Compile Include="..\ReSharper.ReJS.Tests\CallWithSameContextWarningFixTest.cs">
+      <Link>CallWithSameContextWarningFixTest.cs</Link>
+    </Compile>
+    <Compile Include="..\ReSharper.ReJS.Tests\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ReSharper.ReJS\ReSharper.ReJS.csproj">
-      <Project>{c66f56b8-55f3-41c8-ac89-00abfee06293}</Project>
-      <Name>ReSharper.ReJS</Name>
+    <ProjectReference Include="..\ReSharper81.ReJS\ReSharper81.ReJS.csproj">
+      <Project>{7530a610-6afe-4d98-86bb-f62b50b0fe25}</Project>
+      <Name>ReSharper81.ReJS</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="test\data\execute02.js.gold" />
-    <None Include="test\data\execute01.js.gold" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="test\data\execute02.js" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Import Project="..\..\packages\JetBrains.ReSharper.SDK.8.0.1243\build\JetBrains.ReSharper.SDK.Targets" Condition="Exists('..\..\packages\JetBrains.ReSharper.SDK.8.0.1243\build\JetBrains.ReSharper.SDK.Targets')" />
+  <Import Project="..\..\packages\JetBrains.ReSharper.SDK.8.1.231-EAP\build\JetBrains.ReSharper.SDK.Targets" Condition="Exists('..\..\packages\JetBrains.ReSharper.SDK.8.1.231-EAP\build\JetBrains.ReSharper.SDK.Targets')" />
 </Project>

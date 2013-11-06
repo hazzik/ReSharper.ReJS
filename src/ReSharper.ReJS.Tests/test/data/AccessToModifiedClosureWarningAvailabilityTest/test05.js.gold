@@ -1,0 +1,12 @@
+﻿(function () {
+    var a = [1, 2, 3];
+    for (var k in a) {
+        var i = a[k];
+        setTimeout(function () {
+            console.log(|i|(0));
+        }, 0);
+    }
+})();
+------------------------------------------------
+0: Access to externally modified closure
+NO QUICKFIXES

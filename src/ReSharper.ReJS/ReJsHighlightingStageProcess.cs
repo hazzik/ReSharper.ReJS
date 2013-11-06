@@ -62,11 +62,15 @@ namespace ReSharper.ReJS
 
         private bool HasExternallyModifiedClosure(ITreeNode function, KeyValuePair<IDeclaredElement, ReferenceInfo[]> kvp)
         {
-            return kvp.Value.Any(r => r.FunctionLike != function && r.FunctionLike.GetContainingNode<IForStatement>() != null) &&
+            return kvp.Value.Any(r => r.FunctionLike != function && IsInLoop(r.FunctionLike)) &&
                    (kvp.Value.Any(r => r.FunctionLike == function && r.IsWriteUsage) ||
-                    kvp.Key.GetDeclarationsIn(File.GetSourceFile()).Any(d => d.GetContainingNode<IForStatement>() != null));
+                    kvp.Key.GetDeclarationsIn(File.GetSourceFile()).Any(IsInLoop));
         }
 
+        private static bool IsInLoop(ITreeNode node)
+        {
+            return node.GetContainingNode<IForStatement>() != null || node.GetContainingNode<IForeachStatement>() != null;
+        }
 
         private static bool IsCallWithTheSameContextAsFunctionOwner(IInvocationExpression invocation)
         {

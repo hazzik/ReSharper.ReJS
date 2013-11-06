@@ -32,20 +32,31 @@ namespace ReSharper.ReJS
             base.VisitInvocationExpression(invocation, consumer);
         }
 
-        public override void VisitAccessorBody(IAccessorBody accessorBody, IHighlightingConsumer consumer)
+        public override void VisitForStatement(IForStatement forStatement, IHighlightingConsumer consumer)
         {
-            VisitFunctionLike(accessorBody, consumer);
+            VisitLoop(forStatement, consumer);
         }
 
-        public override void VisitFunctionExpression(IFunctionExpression function, IHighlightingConsumer consumer)
+        public override void VisitForeachStatement(IForeachStatement foreachStatement, IHighlightingConsumer consumer)
         {
-            VisitFunctionLike(function, consumer);
+            VisitLoop(foreachStatement, consumer);
         }
 
-        private void VisitFunctionLike(ITreeNode function, IHighlightingConsumer consumer)
+        public override void VisitWhileStatement(IWhileStatement whileStatement, IHighlightingConsumer consumer)
         {
+            VisitLoop(whileStatement, consumer);
+        }
+
+        public override void VisitDoStatement(IDoStatement doStatement, IHighlightingConsumer consumer)
+        {
+            VisitLoop(doStatement, consumer);
+        }
+
+        private void VisitLoop(ITreeNode loop, IHighlightingConsumer consumer)
+        {
+            var function = loop.GetContainingNode<IJsFunctionLike>();
             var accessAnalizer = new ReferenceExpressionCollector();
-            function.ProcessThisAndDescendants(accessAnalizer);
+            loop.ProcessThisAndDescendants(accessAnalizer);
             var accessToExternalModifiedClosure = accessAnalizer.References
                 .GroupBy(r => r.Reference.Resolve().DeclaredElement)
                 .ToDictionary(g => g.Key, g => g.Select(r => new ReferenceInfo(r)).ToArray())

@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Application.Settings;
 using JetBrains.ReSharper.Daemon;
 using JetBrains.ReSharper.Daemon.JavaScript.Impl;
 using JetBrains.ReSharper.Daemon.Stages;
+using JetBrains.ReSharper.Feature.Services.LinqTools;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.JavaScript.Tree;
 using JetBrains.ReSharper.Psi.Tree;
@@ -46,10 +48,9 @@ namespace ReSharper.ReJS
             function.ProcessThisAndDescendants(accessAnalizer);
             var accessToExternalModifiedClosure = accessAnalizer.References
                 .GroupBy(r => r.Reference.Resolve().DeclaredElement)
-                .Select(g => g.Select(r => new ReferenceInfo(r)).ToArray())
-                .Where(l => l.Length > 1)
+                .ToDictionary(g => g.Key, g => g.Select(r => new ReferenceInfo(r)).ToArray())
                 .Where(l => HasExternallyModifiedClosure(function, l))
-                .SelectMany(l => l)
+                .SelectMany(l => l.Value)
                 .Where(r => r.FunctionLike != function)
                 .Select(r => r.ReferenceExpression);
 
@@ -59,10 +60,11 @@ namespace ReSharper.ReJS
             }
         }
 
-        private static bool HasExternallyModifiedClosure(ITreeNode function, ReferenceInfo[] infos)
+        private bool HasExternallyModifiedClosure(ITreeNode function, KeyValuePair<IDeclaredElement, ReferenceInfo[]> kvp)
         {
-            return infos.Any(r => r.FunctionLike != function && r.FunctionLike.GetContainingNode<IForStatement>() != null) &&
-                   infos.Any(r => r.FunctionLike == function && r.IsWriteUsage);
+            return kvp.Value.Any(r => r.FunctionLike != function && r.FunctionLike.GetContainingNode<IForStatement>() != null) &&
+                   (kvp.Value.Any(r => r.FunctionLike == function && r.IsWriteUsage) ||
+                    kvp.Key.GetDeclarationsIn(File.GetSourceFile()).Any(d => d.GetContainingNode<IForStatement>() != null));
         }
 
 

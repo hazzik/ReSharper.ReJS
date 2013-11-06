@@ -69,7 +69,9 @@ namespace ReSharper.ReJS
 
         private static bool IsInLoop(ITreeNode node)
         {
-            return node.GetContainingNode<IForStatement>() != null || node.GetContainingNode<IForeachStatement>() != null;
+            return node.GetContainingNode<IForStatement>() != null ||
+                   node.GetContainingNode<IForeachStatement>() != null ||
+                   node.GetContainingNode<IWhileStatement>() != null;
         }
 
         private static bool IsCallWithTheSameContextAsFunctionOwner(IInvocationExpression invocation)

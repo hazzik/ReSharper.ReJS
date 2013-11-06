@@ -55,6 +55,7 @@
     <None Include="test\data\AccessToModifiedClosureWarningAvailabilityTest\test02.js.gold" />
     <None Include="test\data\AccessToModifiedClosureWarningAvailabilityTest\test03.js.gold" />
     <None Include="test\data\AccessToModifiedClosureWarningAvailabilityTest\test01.js.gold" />
+    <None Include="test\data\AccessToModifiedClosureWarningAvailabilityTest\test06.js.gold" />
     <None Include="test\data\AccessToModifiedClosureWarningAvailabilityTest\test05.js.gold" />
     <None Include="test\data\AccessToModifiedClosureWarningAvailabilityTest\test04.js.gold" />
     <None Include="test\data\execute01.js" />
@@ -86,6 +87,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="test\data\AccessToModifiedClosureWarningAvailabilityTest\test05.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="test\data\AccessToModifiedClosureWarningAvailabilityTest\test06.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

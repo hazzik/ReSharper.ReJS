@@ -48,7 +48,7 @@ namespace ReSharper.ReJS
                 .GroupBy(r => r.Reference.Resolve().DeclaredElement)
                 .Select(g => g.Select(r => new ReferenceInfo(r)).ToArray())
                 .Where(l => l.Length > 1)
-                .Where(l => l.Any(r => r.FunctionLike != function) && l.Any(r => r.FunctionLike == function && r.IsWriteUsage))
+                .Where(l => HasExternallyModifiedClosure(function, l))
                 .SelectMany(l => l)
                 .Where(r => r.FunctionLike != function)
                 .Select(r => r.ReferenceExpression);
@@ -57,6 +57,12 @@ namespace ReSharper.ReJS
             {
                 consumer.AddHighlighting(new AccessToModifiedClosureWarning(referenceExpression), referenceExpression.GetHighlightingRange(), File);
             }
+        }
+
+        private static bool HasExternallyModifiedClosure(ITreeNode function, ReferenceInfo[] infos)
+        {
+            return infos.Any(r => r.FunctionLike != function && r.FunctionLike.GetContainingNode<IForStatement>() != null) &&
+                   infos.Any(r => r.FunctionLike == function && r.IsWriteUsage);
         }
 
 

@@ -62,11 +62,11 @@ namespace ReSharper.ReJS
                 .Where(l => HasExternallyModifiedClosure(function, l))
                 .SelectMany(l => l.Value)
                 .Where(r => r.FunctionLike != function)
-                .Select(r => r.ReferenceExpression);
+                .Select(info => info.ReferenceExpression);
 
-            foreach (var referenceExpression in accessToExternalModifiedClosure)
+            foreach (var expression in accessToExternalModifiedClosure)
             {
-                consumer.AddHighlighting(new AccessToModifiedClosureWarning(referenceExpression), referenceExpression.GetHighlightingRange(), File);
+                consumer.AddHighlighting(new AccessToModifiedClosureWarning(expression), expression.GetHighlightingRange(), File);
             }
         }
 
@@ -74,7 +74,7 @@ namespace ReSharper.ReJS
         {
             return kvp.Value.Any(r => r.FunctionLike != function && IsInLoop(r.FunctionLike)) &&
                    (kvp.Value.Any(r => r.FunctionLike == function && r.IsWriteUsage) ||
-                    kvp.Key.GetDeclarationsIn(File.GetSourceFile()).Any(IsInLoop));
+                    kvp.Key.GetDeclarationsIn(File.GetSourceFile()).Any(d => IsInLoop(d) && d.GetContainingNode<IJsFunctionLike>() == function));
         }
 
         private static bool IsInLoop(ITreeNode node)

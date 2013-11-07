@@ -20,6 +20,7 @@ namespace ReSharper.ReJS.Tests
         [TestCase("test05.js")]
         [TestCase("test06.js")]
         [TestCase("test07.js")]
+        [TestCase("test08.js")]
         public void Test(string file)
         {
             DoTestFiles(file);

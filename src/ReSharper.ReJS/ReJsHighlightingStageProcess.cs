@@ -59,7 +59,7 @@ namespace ReSharper.ReJS
             var accessToExternalModifiedClosure = accessAnalizer.References
                 .GroupBy(r => r.Reference.Resolve().DeclaredElement)
                 .ToDictionary(g => g.Key, g => g.Select(r => new ReferenceInfo(r)).ToArray())
-                .Where(l => HasExternallyModifiedClosure(function, l))
+                .Where(l => HasExternallyModifiedClosure(function, l, loop))
                 .SelectMany(l => l.Value)
                 .Where(r => r.FunctionLike != function)
                 .Select(info => info.ReferenceExpression);
@@ -70,19 +70,16 @@ namespace ReSharper.ReJS
             }
         }
 
-        private bool HasExternallyModifiedClosure(ITreeNode function, KeyValuePair<IDeclaredElement, ReferenceInfo[]> kvp)
+        private bool HasExternallyModifiedClosure(ITreeNode function, KeyValuePair<IDeclaredElement, ReferenceInfo[]> kvp, ITreeNode loop)
         {
-            return kvp.Value.Any(r => r.FunctionLike != function && IsInLoop(r.FunctionLike)) &&
+            return kvp.Value.Any(r => r.FunctionLike != function) &&
                    (kvp.Value.Any(r => r.FunctionLike == function && r.IsWriteUsage) ||
-                    kvp.Key.GetDeclarationsIn(File.GetSourceFile()).Any(d => IsInLoop(d) && d.GetContainingNode<IJsFunctionLike>() == function));
+                    kvp.Key.GetDeclarationsIn(File.GetSourceFile()).Any(d => d.GetContainingNode<IJsFunctionLike>() == function && IsInLoop(d, loop)));
         }
 
-        private static bool IsInLoop(ITreeNode node)
+        private static bool IsInLoop(ITreeNode node, ITreeNode loop)
         {
-            return node.GetContainingNode<IForStatement>() != null ||
-                   node.GetContainingNode<IForeachStatement>() != null ||
-                   node.GetContainingNode<IWhileStatement>() != null ||
-                   node.GetContainingNode<IDoStatement>() != null;
+            return node.GetContainingNode<IJavaScriptStatementWithParenthesis>(n => n == loop) != null;
         }
 
         private static bool IsCallWithTheSameContextAsFunctionOwner(IInvocationExpression invocation)

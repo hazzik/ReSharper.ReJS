@@ -1,6 +1,0 @@
-﻿var x = {
-    someMethod: function() {
-    }
-};
-
-x./*{caret}*/someMethod();

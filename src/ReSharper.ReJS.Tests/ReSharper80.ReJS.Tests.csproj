@@ -59,7 +59,7 @@
     <None Include="test\data\AccessToModifiedClosureWarningAvailabilityTest\test06.js.gold" />
     <None Include="test\data\AccessToModifiedClosureWarningAvailabilityTest\test05.js.gold" />
     <None Include="test\data\AccessToModifiedClosureWarningAvailabilityTest\test04.js.gold" />
-    <None Include="test\data\execute01.js" />
+    <None Include="test\data\CallWithSameContextWarningFixTest\execute01.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ReSharper.ReJS\ReSharper80.ReJS.csproj">
@@ -68,11 +68,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="test\data\execute02.js.gold" />
-    <None Include="test\data\execute01.js.gold" />
+    <None Include="test\data\CallWithSameContextWarningFixTest\execute02.js.gold" />
+    <None Include="test\data\CallWithSameContextWarningFixTest\execute01.js.gold" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="test\data\execute02.js" />
+    <None Include="test\data\CallWithSameContextWarningFixTest\execute02.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="test\data\AccessToModifiedClosureWarningAvailabilityTest\test01.js" />

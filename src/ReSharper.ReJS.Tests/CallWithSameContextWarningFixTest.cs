@@ -4,13 +4,8 @@ using NUnit.Framework;
 namespace ReSharper.ReJS.Tests
 {
     [TestFixture]
-    public class CallWithSameContextWarningFixTestTest : JavaScriptQuickFixTestBase<CallWithSameContextWarningFix>
+    public class CallWithSameContextWarningFixTest : JavaScriptQuickFixTestBase<CallWithSameContextWarningFix>
     {
-        protected override string RelativeTestDataPath
-        {
-            get { return ""; }
-        }
-
         [TestCase("execute01.js")]
         [TestCase("execute02.js")]
         public void Test(string file)

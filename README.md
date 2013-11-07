@@ -19,6 +19,8 @@ x.someMethod.call(x, 1, 2, 3);
 
 The plugin will suggest to replace the `x.someMethod.call(x, 1, 2, 3)` expression with `x.someMethod(1, 2, 3)`
 
+####Remove unreachable code
+
 ###Available warnings
 ####Detect access to externally modified clousre.
 ```javascript

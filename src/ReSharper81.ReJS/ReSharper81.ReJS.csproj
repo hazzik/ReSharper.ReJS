@@ -65,6 +65,9 @@
     <Compile Include="..\ReSharper.ReJS\ReJsHighlightingStageProcess.cs">
       <Link>ReJsHighlightingStageProcess.cs</Link>
     </Compile>
+    <Compile Include="..\ReSharper.ReJS\RemoveUnreachableCodeFix.cs">
+      <Link>RemoveUnreachableCodeFix.cs</Link>
+    </Compile>
     <Compile Include="..\ReSharper.ReJS\VariableCollector.cs">
       <Link>VariableCollector.cs</Link>
     </Compile>

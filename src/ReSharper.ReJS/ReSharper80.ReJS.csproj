@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="AccessToModifiedClosureWarning.cs" />
     <Compile Include="CallWithSameContextWarning.cs" />
+    <Compile Include="RemoveUnreachableCodeFix.cs" />
     <Compile Include="VariableCollector.cs" />
     <Compile Include="VariableInfo.cs" />
     <Compile Include="ReJSHighlightingStage.cs" />

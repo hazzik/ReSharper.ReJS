@@ -10,21 +10,21 @@ namespace ReSharper.ReJS
         //TODO: Can I reuse CSharp's HIGHLIGHTING_ID?
         public const string HIGHLIGHTING_ID = "JsAccessToModifiedClosure";
 
-        private readonly IReferenceExpression _referenceExpression;
+        private readonly IJavaScriptTreeNode _treeNode;
 
-        public AccessToModifiedClosureWarning(IReferenceExpression referenceExpression)
+        public AccessToModifiedClosureWarning(IJavaScriptTreeNode treeNode)
         {
-            _referenceExpression = referenceExpression;
+            _treeNode = treeNode;
         }
 
-        public IReferenceExpression ReferenceExpression
+        public IJavaScriptTreeNode TreeNode
         {
-            get { return _referenceExpression; }
+            get { return _treeNode; }
         }
 
         public bool IsValid()
         {
-            return ReferenceExpression != null && ReferenceExpression.IsValid();
+            return TreeNode != null && TreeNode.IsValid();
         }
 
         public string ToolTip

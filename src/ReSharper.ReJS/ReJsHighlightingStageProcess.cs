@@ -54,15 +54,15 @@ namespace ReSharper.ReJS
         private void VisitLoop(ITreeNode loop, IHighlightingConsumer consumer)
         {
             var function = loop.GetContainingNode<IJsFunctionLike>();
-            var accessAnalizer = new ReferenceExpressionCollector();
+            var accessAnalizer = new VariableCollector();
             loop.ProcessThisAndDescendants(accessAnalizer);
-            var accessToExternalModifiedClosure = accessAnalizer.References
-                .GroupBy(r => r.Reference.Resolve().DeclaredElement)
-                .ToDictionary(g => g.Key, g => g.Select(r => new ReferenceInfo(r)).ToArray())
-                .Where(l => HasExternallyModifiedClosure(function, l, loop))
+            var accessToExternalModifiedClosure = accessAnalizer.Variables
+                .GroupBy(r => r.DeclaredElement)
+                .ToDictionary(g => g.Key, g => g.ToArray())
+                .Where(l => HasExternallyModifiedClosure(function, l))
                 .SelectMany(l => l.Value)
                 .Where(r => r.FunctionLike != function)
-                .Select(info => info.ReferenceExpression);
+                .Select(info => info.Node);
 
             foreach (var expression in accessToExternalModifiedClosure)
             {
@@ -70,16 +70,10 @@ namespace ReSharper.ReJS
             }
         }
 
-        private bool HasExternallyModifiedClosure(ITreeNode function, KeyValuePair<IDeclaredElement, ReferenceInfo[]> kvp, ITreeNode loop)
+        private static bool HasExternallyModifiedClosure(ITreeNode function, KeyValuePair<IDeclaredElement, VariableInfo[]> kvp)
         {
             return kvp.Value.Any(r => r.FunctionLike != function) &&
-                   (kvp.Value.Any(r => r.FunctionLike == function && r.IsWriteUsage) ||
-                    kvp.Key.GetDeclarationsIn(File.GetSourceFile()).Any(d => d.GetContainingNode<IJsFunctionLike>() == function && IsInLoop(d, loop)));
-        }
-
-        private static bool IsInLoop(ITreeNode node, ITreeNode loop)
-        {
-            return node.GetContainingNode<IJavaScriptStatementWithParenthesis>(n => n == loop) != null;
+                   kvp.Value.Any(r => r.FunctionLike == function && r.IsWriteUsage);
         }
 
         private static bool IsCallWithTheSameContextAsFunctionOwner(IInvocationExpression invocation)

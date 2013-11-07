@@ -59,17 +59,17 @@
     <Compile Include="..\ReSharper.ReJS\Properties\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="..\ReSharper.ReJS\ReferenceExpressionCollector.cs">
-      <Link>ReferenceExpressionCollector.cs</Link>
-    </Compile>
-    <Compile Include="..\ReSharper.ReJS\ReferenceInfo.cs">
-      <Link>ReferenceInfo.cs</Link>
-    </Compile>
     <Compile Include="..\ReSharper.ReJS\ReJSHighlightingStage.cs">
       <Link>ReJSHighlightingStage.cs</Link>
     </Compile>
     <Compile Include="..\ReSharper.ReJS\ReJsHighlightingStageProcess.cs">
       <Link>ReJsHighlightingStageProcess.cs</Link>
+    </Compile>
+    <Compile Include="..\ReSharper.ReJS\VariableCollector.cs">
+      <Link>VariableCollector.cs</Link>
+    </Compile>
+    <Compile Include="..\ReSharper.ReJS\VariableInfo.cs">
+      <Link>VariableInfo.cs</Link>
     </Compile>
   </ItemGroup>
   <ItemGroup>

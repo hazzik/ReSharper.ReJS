@@ -58,9 +58,9 @@ namespace ReSharper.ReJS
             loop.ProcessThisAndDescendants(accessAnalizer);
             var accessToExternalModifiedClosure = accessAnalizer.Variables
                 .GroupBy(r => r.DeclaredElement)
-                .ToDictionary(g => g.Key, g => g.ToArray())
+                .Select(g => g.ToArray())
                 .Where(l => HasExternallyModifiedClosure(function, l))
-                .SelectMany(l => l.Value)
+                .SelectMany(l => l)
                 .Where(r => r.FunctionLike != function)
                 .Select(info => info.Node);
 
@@ -70,10 +70,10 @@ namespace ReSharper.ReJS
             }
         }
 
-        private static bool HasExternallyModifiedClosure(ITreeNode function, KeyValuePair<IDeclaredElement, VariableInfo[]> kvp)
+        private static bool HasExternallyModifiedClosure(ITreeNode function, VariableInfo[] variables)
         {
-            return kvp.Value.Any(r => r.FunctionLike != function) &&
-                   kvp.Value.Any(r => r.FunctionLike == function && r.IsWriteUsage);
+            return variables.Any(r => r.FunctionLike != function) &&
+                   variables.Any(r => r.FunctionLike == function && r.IsWriteUsage);
         }
 
         private static bool IsCallWithTheSameContextAsFunctionOwner(IInvocationExpression invocation)

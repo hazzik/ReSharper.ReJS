@@ -4,6 +4,15 @@ resharper-rejs
 Refactorings for JavaScript
 
 ###Available quick-fixes
+####Convert object's property access from reference form to indexed form and vise-versa
+
+Example
+
+```javascript
+var z = x.y; // => var z = x['y'];
+var z = x['y']; // => var z = x.y;
+```
+
 ####Detect function invocations with `Function.prototype.call` with the same context as the function's owner.
 
 Example

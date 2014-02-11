@@ -68,6 +68,12 @@
     <Compile Include="..\ReSharper.ReJS\RemoveUnreachableCodeFix.cs">
       <Link>RemoveUnreachableCodeFix.cs</Link>
     </Compile>
+    <Compile Include="..\ReSharper.ReJS\ReplaceIndexWithReferenceAction.cs">
+      <Link>ReplaceIndexWithReferenceAction.cs</Link>
+    </Compile>
+    <Compile Include="..\ReSharper.ReJS\ReplaceReferenceWithIndexAction.cs">
+      <Link>ReplaceReferenceWithIndexAction.cs</Link>
+    </Compile>
     <Compile Include="..\ReSharper.ReJS\VariableCollector.cs">
       <Link>VariableCollector.cs</Link>
     </Compile>

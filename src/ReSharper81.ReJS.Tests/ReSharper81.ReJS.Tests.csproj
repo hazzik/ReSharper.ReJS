@@ -57,6 +57,12 @@
     <Compile Include="..\ReSharper.ReJS.Tests\Properties\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="..\ReSharper.ReJS.Tests\ReplaceIndexWithReferenceActionTest.cs">
+      <Link>ReplaceIndexWithReferenceActionTest.cs</Link>
+    </Compile>
+    <Compile Include="..\ReSharper.ReJS.Tests\ReplaceReferenceWithIndexActionTest.cs">
+      <Link>ReplaceReferenceWithIndexActionTest.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ReSharper81.ReJS\ReSharper81.ReJS.csproj">

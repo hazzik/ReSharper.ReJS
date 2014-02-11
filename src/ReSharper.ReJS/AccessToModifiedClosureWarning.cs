@@ -7,7 +7,6 @@ namespace ReSharper.ReJS
     [ConfigurableSeverityHighlighting(HIGHLIGHTING_ID, JavaScriptLanguage.Name, OverlapResolve = OverlapResolveKind.WARNING)]
     public class AccessToModifiedClosureWarning : IHighlighting
     {
-        //TODO: Can I reuse CSharp's HIGHLIGHTING_ID?
         public const string HIGHLIGHTING_ID = "JsAccessToModifiedClosure";
 
         private readonly IJavaScriptTreeNode _treeNode;

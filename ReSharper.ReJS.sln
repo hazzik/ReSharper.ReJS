@@ -1,26 +1,26 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReSharper80.ReJS", "src\ReSharper.ReJS\ReSharper80.ReJS.csproj", "{C66F56B8-55F3-41C8-AC89-00ABFEE06293}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReSharper80.ReJS.Tests", "src\ReSharper.ReJS.Tests\ReSharper80.ReJS.Tests.csproj", "{5B7C7310-2F48-49A5-A56D-041724E1C87D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E9F73207-EB2F-481F-9880-7F91FB59CCF2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReSharper80", "ReSharper80", "{B9595747-C126-4DA4-8869-5135A1BC714C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReSharper81", "ReSharper81", "{0BA5D9DC-7430-42EE-8E33-32949B6D5991}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReSharper81.ReJS", "src\ReSharper.ReJS\ReSharper81.ReJS.csproj", "{7530A610-6AFE-4D98-86BB-F62B50B0FE25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReSharper81.ReJS.Tests", "src\ReSharper.ReJS.Tests\ReSharper81.ReJS.Tests.csproj", "{52FD6D3B-B070-4069-BD33-11DCA344238B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{AA635EB5-3BDD-4807-9924-64491368627A}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReSharper80", "ReSharper80", "{B9595747-C126-4DA4-8869-5135A1BC714C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReSharper81", "ReSharper81", "{0BA5D9DC-7430-42EE-8E33-32949B6D5991}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReSharper81.ReJS", "src\ReSharper81.ReJS\ReSharper81.ReJS.csproj", "{7530A610-6AFE-4D98-86BB-F62B50B0FE25}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReSharper81.ReJS.Tests", "src\ReSharper81.ReJS.Tests\ReSharper81.ReJS.Tests.csproj", "{52FD6D3B-B070-4069-BD33-11DCA344238B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,8 +49,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C66F56B8-55F3-41C8-AC89-00ABFEE06293} = {B9595747-C126-4DA4-8869-5135A1BC714C}
 		{5B7C7310-2F48-49A5-A56D-041724E1C87D} = {B9595747-C126-4DA4-8869-5135A1BC714C}
+		{C66F56B8-55F3-41C8-AC89-00ABFEE06293} = {B9595747-C126-4DA4-8869-5135A1BC714C}
 		{7530A610-6AFE-4D98-86BB-F62B50B0FE25} = {0BA5D9DC-7430-42EE-8E33-32949B6D5991}
 		{52FD6D3B-B070-4069-BD33-11DCA344238B} = {0BA5D9DC-7430-42EE-8E33-32949B6D5991}
 	EndGlobalSection

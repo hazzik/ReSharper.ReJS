@@ -60,7 +60,7 @@
     <Compile Include="ReJsHighlightingStageProcess.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.ReSharper80.ReJS.config" />
     <None Include="ReSharper.ReJS.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

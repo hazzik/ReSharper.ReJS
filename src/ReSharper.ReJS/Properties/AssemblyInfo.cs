@@ -16,13 +16,11 @@ using ReSharper.ReJS;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-[assembly: AssemblyVersion("0.5.2.0")]
-[assembly: AssemblyFileVersion("0.5.2.0")]
-
-[assembly: ActionsXml("ReSharper.ReJS.Actions.xml")]
+[assembly: AssemblyVersion("0.5.3.0")]
+[assembly: AssemblyFileVersion("0.5.3.0")]
 
 // The following information is displayed by ReSharper in the Plugins dialog
-[assembly: PluginTitle("ReSharper.reJS")]
+[assembly: PluginTitle("ReSharper.ReJS")]
 [assembly: PluginDescription("Useful refactorings for JavaScript")]
 [assembly: PluginVendor("Alexander Zaytsev")]
 

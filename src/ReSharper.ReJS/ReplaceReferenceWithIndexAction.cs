@@ -28,13 +28,18 @@ namespace ReSharper.ReJS
         public override bool IsAvailable(IUserDataHolder cache)
         {
             var reference = _provider.GetSelectedElement<IReferenceExpression>(true, true);
-            if (reference != null && reference.Qualifier != null && reference.IsValid())
+            if (reference != null && reference.IsValid())
             {
-                _referenceExpression = reference;
-                _replacement = string.Format("{0}['{1}']", reference.Qualifier.GetText(), reference.NameIdentifier.GetText());
-                return true;
+	            var qualifier = reference.Qualifier;
+	            var nameIdentifier = reference.NameIdentifier;
+	            if (qualifier != null && nameIdentifier != null)
+	            {
+		            _referenceExpression = reference;
+		            _replacement = string.Format("{0}['{1}']", qualifier.GetText(), nameIdentifier.GetText());
+		            return true;
+	            }
             }
-            return false;
+	        return false;
         }
 
         protected override Action<ITextControl> ExecutePsiTransaction(ISolution solution, IProgressIndicator progress)

@@ -2,8 +2,12 @@ using System;
 using System.Linq;
 using JetBrains.Application.Settings;
 using JetBrains.ReSharper.Daemon;
+using JetBrains.ReSharper.Daemon.JavaScript;
+#if !RESHARPER9
 using JetBrains.ReSharper.Daemon.JavaScript.Impl;
+#endif
 using JetBrains.ReSharper.Daemon.Stages;
+using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.JavaScript.Tree;
 using JetBrains.ReSharper.Psi.Tree;

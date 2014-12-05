@@ -4,25 +4,35 @@ using JetBrains.Application.Progress;
 using JetBrains.ProjectModel;
 using JetBrains.ReSharper.Feature.Services.Bulbs;
 using JetBrains.ReSharper.Feature.Services.JavaScript.Bulbs;
-using JetBrains.ReSharper.Intentions.Extensibility;
 using JetBrains.ReSharper.Psi.ExtensionsAPI.Tree;
 using JetBrains.ReSharper.Psi.JavaScript.Services;
 using JetBrains.ReSharper.Psi.JavaScript.Tree;
 using JetBrains.TextControl;
 using JetBrains.Util;
+#if !RESHARPER9
+using JetBrains.ReSharper.Intentions.Extensibility;
+#else
+using JetBrains.ReSharper.Feature.Services.ContextActions;
+using JetBrains.ReSharper.Resources.Shell;
+#endif
 
 namespace ReSharper.ReJS
 {
     [ContextAction(Name = "ReplaceIndexWithReference", Description = "Replaces index expression with reference expression", Group = "JavaScript")]
     public class ReplaceIndexWithReferenceAction : ContextActionBase
     {
-        private readonly IJavaScriptContextActionDataProvider _provider;
         private IIndexExpression _indexExpression;
         private string _replacement;
+        private readonly IJavaScriptContextActionDataProvider _provider;
 
         public ReplaceIndexWithReferenceAction(IJavaScriptContextActionDataProvider provider)
         {
             _provider = provider;
+        }
+
+        public override string Text
+        {
+            get { return "Replace with " + _replacement; }
         }
 
         public override bool IsAvailable(IUserDataHolder cache)
@@ -43,11 +53,6 @@ namespace ReSharper.ReJS
             using (WriteLockCookie.Create())
                 ModificationUtil.ReplaceChild(_indexExpression, factory.CreateExpression(_replacement));
             return null;
-        }
-
-        public override string Text
-        {
-            get { return "Replace with " + _replacement; }
         }
     }
 }

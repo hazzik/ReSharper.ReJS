@@ -1,7 +1,12 @@
-﻿using JetBrains.ReSharper.Daemon;
-using JetBrains.ReSharper.Intentions.Test;
+﻿using JetBrains.ReSharper.Feature.Services.Daemon;
+using JetBrains.ReSharper.Daemon;
 using JetBrains.ReSharper.Psi;
 using NUnit.Framework;
+#if !RESHARPER9
+using JetBrains.ReSharper.Intentions.Test;
+#else
+using JetBrains.ReSharper.FeaturesTestFramework.Intentions;
+#endif
 
 namespace ReSharper.ReJS.Tests
 {

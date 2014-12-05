@@ -5,7 +5,12 @@ using JetBrains.Application.Progress;
 using JetBrains.ProjectModel;
 using JetBrains.ReSharper.Daemon.JavaScript.Stages;
 using JetBrains.ReSharper.Feature.Services.Bulbs;
+#if !RESHARPER9
 using JetBrains.ReSharper.Intentions.Extensibility;
+#else
+using JetBrains.ReSharper.Feature.Services.QuickFixes;
+using JetBrains.ReSharper.Resources.Shell;
+#endif
 using JetBrains.ReSharper.Intentions.Util;
 using JetBrains.ReSharper.Psi;
 using JetBrains.ReSharper.Psi.ExtensionsAPI.Tree;

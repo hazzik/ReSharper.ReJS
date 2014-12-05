@@ -1,6 +1,9 @@
+using JetBrains.DocumentModel;
 using JetBrains.ReSharper.Daemon;
+using JetBrains.ReSharper.Feature.Services.Daemon;
 using JetBrains.ReSharper.Psi.JavaScript.LanguageImpl;
 using JetBrains.ReSharper.Psi.JavaScript.Tree;
+using JetBrains.ReSharper.Psi.Tree;
 
 namespace ReSharper.ReJS
 {
@@ -18,6 +21,11 @@ namespace ReSharper.ReJS
         public bool IsValid()
         {
             return InvocationExpression != null && InvocationExpression.IsValid();
+        }
+
+        public DocumentRange CalculateRange()
+        {
+            return _invocationExpression.GetDocumentRange();
         }
 
         public string ToolTip

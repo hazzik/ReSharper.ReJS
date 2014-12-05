@@ -1,4 +1,8 @@
+#if !RESHARPER9
 using JetBrains.ReSharper.Intentions.JavaScript.Tests.ContextActions;
+#else
+using JetBrains.ReSharper.FeaturesTestFramework.Intentions;
+#endif
 using NUnit.Framework;
 
 namespace ReSharper.ReJS.Tests

@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using System.Reflection;
 using JetBrains.Application;
+#if RESHARPER9
+using JetBrains.ReSharper.Resources.Shell;
+#endif
 using JetBrains.Threading;
 using NUnit.Framework;
 using ReSharper.ReJS;
@@ -9,7 +12,6 @@ using ReSharper.ReJS;
 /// Test environment. Must be in the global namespace.
 /// </summary>
 [SetUpFixture]
-// ReSharper disable once CheckNamespace
 public class TestEnvironmentAssembly : ReSharperTestEnvironmentAssembly
 {
     /// <summary>

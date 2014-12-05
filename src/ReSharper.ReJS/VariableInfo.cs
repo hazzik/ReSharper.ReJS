@@ -1,4 +1,8 @@
 using JetBrains.ReSharper.Psi;
+#if RESHARPER9
+using JetBrains.ReSharper.Psi.ExtensionsAPI.Tree;
+using JetBrains.ReSharper.Psi.JavaScript.Parsing;
+#endif
 using JetBrains.ReSharper.Psi.JavaScript.Tree;
 using JetBrains.ReSharper.Psi.Tree;
 
@@ -34,7 +38,47 @@ namespace ReSharper.ReJS
             var binaryexpression = referenceExpression.Parent as IBinaryExpression;
             return binaryexpression != null &&
                    binaryexpression.LeftOperand == referenceExpression &&
-                   binaryexpression.IsAssignment;
+                   IsAssignmentImpl(binaryexpression);
         }
+
+#if !RESHARPER9
+        private static bool IsAssignmentImpl(IBinaryExpression binaryexpression)
+        {
+            return binaryexpression.IsAssignment;
+        }
+#else
+        private static bool IsAssignmentImpl(ITreeNode binaryexpression)
+        {
+            var treeElement = binaryexpression.FirstChild;
+            if (treeElement == null)
+                return false;
+
+            for (; treeElement != null; treeElement = treeElement.NextSibling)
+            {
+                var javaScriptTokenBase = treeElement as JavaScriptTokenBase;
+                if (javaScriptTokenBase != null)
+                {
+                    NodeType nodeType = javaScriptTokenBase.NodeType;
+                    if (nodeType == JavaScriptTokenType.EQ ||
+                        nodeType == JavaScriptTokenType.PLUSEQ ||
+                        nodeType == JavaScriptTokenType.MINUSEQ ||
+                        nodeType == JavaScriptTokenType.TIMESEQ ||
+                        nodeType == JavaScriptTokenType.PERCENTEQ ||
+                        nodeType == JavaScriptTokenType.LSHIFTEQ ||
+                        nodeType == JavaScriptTokenType.RSHIFTEQ ||
+                        nodeType == JavaScriptTokenType.GT3EQ ||
+                        nodeType == JavaScriptTokenType.AMPEREQ ||
+                        nodeType == JavaScriptTokenType.PIPEEQ ||
+                        nodeType == JavaScriptTokenType.CAROTEQ ||
+                        nodeType == JavaScriptTokenType.DIVIDEEQ)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+#endif
     }
 }

@@ -12,6 +12,7 @@
   </Target>
   <Target Name="NuGetPack">
     <Exec Command="$(NuGetExePath) pack $(ProjectDir)\ReSharper.ReJS.nuspec -Properties &quot;Configuration=$(Configuration)&quot; $(NonInteractiveSwitch) -OutputDirectory &quot;$(PackageOutputDir)&quot;" />
+    <Exec Command="$(NuGetExePath) pack $(ProjectDir)\ReSharper.ReJS.R90.nuspec -Properties &quot;Configuration=$(Configuration)&quot; $(NonInteractiveSwitch) -OutputDirectory &quot;$(PackageOutputDir)&quot;" />
   </Target>
   <Target Name="RestorePackages">
     <Exec Command="$(NuGetExePath) restore"/>

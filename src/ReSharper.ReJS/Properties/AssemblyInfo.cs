@@ -19,8 +19,8 @@ using ReSharper.ReJS;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-[assembly: AssemblyVersion("0.5.4.0")]
-[assembly: AssemblyFileVersion("0.5.4.0")]
+[assembly: AssemblyVersion("0.5.5.0")]
+[assembly: AssemblyFileVersion("0.5.5.0")]
 
 #if !RESHARPER9
 // The following information is displayed by ReSharper in the Plugins dialog

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ReSharper.ReJS.R90</id>
+    <version>0.5.5</version>
+    <title>ReSharper.ReJS.90</title>
+    <authors>Alexander Zaytsev</authors>
+    <owners>Hazzik</owners>
+    <licenseUrl>http://github.com/hazzik/resharper-rejs/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/hazzik/resharper-rejs/</projectUrl>
+    <!--<iconUrl></iconUrl>-->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A set of refactorings for JavaScript</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright © Alexander Zaytsev, 2014</copyright>
+    <tags>ReSharper Refactorings JavaScript</tags>
+    <dependencies>
+      <dependency id="Wave" version="[1.0]" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\$Configuration$\v9.0\ReSharper.ReJS.*" target="dotFiles\" />
+  </files>
+</package>

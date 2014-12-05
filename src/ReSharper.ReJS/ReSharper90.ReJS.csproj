@@ -144,10 +144,11 @@
     <Compile Include="ReplaceReferenceWithIndexAction.cs" />
     <Compile Include="VariableCollector.cs" />
     <Compile Include="VariableInfo.cs" />
+    <Compile Include="ZoneMarker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="ReSharper.ReJS.nuspec" />
+    <None Include="ReSharper.ReJS.R90.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

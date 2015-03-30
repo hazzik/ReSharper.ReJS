@@ -1,24 +1,24 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>ReSharper.ReJS.R90</id>
-    <version>0.5.5</version>
-    <title>ReSharper.ReJS.90</title>
+    <id>Hazzik.ReSharper.ReJS.R91</id>
+    <version>0.5.5-EAP8</version>
+    <title>ReSharper ReJS</title>
     <authors>Alexander Zaytsev</authors>
     <owners>Hazzik</owners>
     <licenseUrl>https://github.com/hazzik/ReSharper.ReJS/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/hazzik/ReSharper.ReJS</projectUrl>
+    <projectUrl>https://github.com/hazzik/ReSharper.ReJS/</projectUrl>
     <!--<iconUrl></iconUrl>-->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A set of refactorings for JavaScript</description>
     <releaseNotes></releaseNotes>
-    <copyright>Copyright © Alexander Zaytsev, 2014-215</copyright>
+    <copyright>Copyright © Alexander Zaytsev, 2014-2015</copyright>
     <tags>ReSharper Refactorings JavaScript</tags>
     <dependencies>
-      <dependency id="Wave" version="[1.0]" />
+      <dependency id="Wave" version="[2.0]" />
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\$Configuration$\v9.0\ReSharper.ReJS.*" target="dotFiles\" />
+    <file src="bin\$Configuration$\v9.1\ReSharper.ReJS.*" target="dotFiles\" />
   </files>
 </package>

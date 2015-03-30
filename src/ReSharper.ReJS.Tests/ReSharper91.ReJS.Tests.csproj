@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F418F135-BFE2-4247-8C34-19068250D8F2}</ProjectGuid>
+    <ProjectGuid>{414959A1-8976-4280-B510-FFD365135205}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ReSharper.ReJS.Tests</RootNamespace>
@@ -15,14 +15,14 @@
     <TargetFrameworkProfile />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
-    <BaseIntermediateOutputPath>obj\v9.0</BaseIntermediateOutputPath>
+    <BaseIntermediateOutputPath>obj\v9.1</BaseIntermediateOutputPath>
     <NuGetPackageImportStamp>08935466</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\v9.0\</OutputPath>
+    <OutputPath>bin\Debug\v9.1\</OutputPath>
     <DefineConstants>TRACE;DEBUG;JET_MODE_ASSERT;RESHARPER9</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -30,7 +30,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\v9.0\</OutputPath>
+    <OutputPath>bin\Release\v9.1\</OutputPath>
     <DefineConstants>TRACE;RESHARPER9</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -141,7 +141,7 @@
     <Compile Include="ReSharperTestEnvironmentAssembly.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.ReSharper90.ReJS.Tests.config" />
+    <None Include="packages.ReSharper91.ReJS.Tests.config" />
     <None Include="test\data\AccessToModifiedClosureWarningAvailabilityTest\test01.js.gold" />
     <None Include="test\data\AccessToModifiedClosureWarningAvailabilityTest\test02.js.gold" />
     <None Include="test\data\AccessToModifiedClosureWarningAvailabilityTest\test03.js.gold" />
@@ -170,9 +170,9 @@
     <None Include="test\data\ReplaceReferenceWithIndexActionTest\execute01.js" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ReSharper.ReJS\ReSharper90.ReJS.csproj">
-      <Project>{8ed0b721-0f1e-478e-9738-1da6dcb0e87b}</Project>
-      <Name>ReSharper90.ReJS</Name>
+    <ProjectReference Include="..\ReSharper.ReJS\ReSharper91.ReJS.csproj">
+      <Project>{d7190471-e100-44a0-9f77-c60f04713b78}</Project>
+      <Name>ReSharper91.ReJS</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

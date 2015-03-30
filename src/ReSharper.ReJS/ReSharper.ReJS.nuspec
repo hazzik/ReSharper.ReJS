@@ -6,13 +6,13 @@
     <title>ReSharper.ReJS</title>
     <authors>Alexander Zaytsev</authors>
     <owners>Hazzik</owners>
-    <licenseUrl>http://github.com/hazzik/resharper-rejs/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/hazzik/resharper-rejs/</projectUrl>
+    <licenseUrl>https://github.com/hazzik/ReSharper.ReJS/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/hazzik/ReSharper.ReJS</projectUrl>
     <!--<iconUrl></iconUrl>-->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A set of refactorings for JavaScript</description>
     <releaseNotes></releaseNotes>
-    <copyright>Copyright © Alexander Zaytsev, 2013</copyright>
+    <copyright>Copyright © Alexander Zaytsev, 2013-2015</copyright>
     <tags>ReSharper Refactorings JavaScript</tags>
     <dependencies>
       <dependency id="Resharper" version="8.0" />
